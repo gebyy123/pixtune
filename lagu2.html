@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" type="text/css" href="style4.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So Bitter</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #6f629c;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .music-player {
+            background-color: #32285a;
+            border-radius: 20px;
+            padding: 20px;
+            width: 340px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .music-player .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .music-player .header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #fff9f9;
+        }
+
+        .music-player .header .menu-icon {
+            background-color: #a1a5ca;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .music-player .header .menu-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .music-player img.album-art {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .music-player h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #fdfdff;
+        }
+
+        .music-player p.artist-name {
+            color: #a1a5d1;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            background-color: #f8f8fa;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            margin: 0 10px;
+            box-shadow: 0px 5px 10px rgba(8, 8, 8, 0.1);
+            cursor: pointer;
+        }
+
+        .controls button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .slider input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 5px;
+            background: #dde9fa;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #6567eb;
+            cursor: pointer;
+        }
+
+        .slider .time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #faf5f6;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .footer button {
+            background-color: #f8f8f8;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer button img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .background-decor {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #fdfbfa;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: rgb(37, 56, 116);
+        }
+
+        .icon-overlay {
+            position: absolute;
+            top: 45px;
+            right: 15px;
+            background-color: #fcfbfb;
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-overlay img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .lyrics {
+            margin-top: 20px;
+            color: #8f8fa7;
+            font-size: 14px;
+            line-height: 1.5;
+            height: 100px; /* Adjust as needed */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lyrics-wrapper {
+            height: 100%;
+            overflow-y: scroll;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease; /* Smooth scrolling */
+        }
+
+        .lyrics p {
+            margin: 5px 0;
+            padding: 2px 0;
+        }
+
+        .highlight {
+            color: #fafafa;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+    .music-player {
+        width: 100%;
+        height: 98vh; /* Memastikan player mengisi tinggi layar */
+        border-radius: 0; /* Membuat sudut membulat agar sesuai dengan ukuran layar */
+    }
+
+    .album-art {
+        width: 60%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="music-player">
+        <div class="background-decor">bbyy</div>
+        
+        <div class="header">
+            <h2>Play Music</h2>
+            <div class="menu-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" alt="Menu">
+            </div>
+        </div>
+
+        <img src="ppgacha.jpg" alt="Album Art" class="album-art">
+        <h3 id="song-title">So Bitter</h3>
+        <p class="artist-name">Stxlkin</p>
+
+        <div class="controls">
+            <button id="prev"><img src="https://img.icons8.com/ios-filled/50/000000/skip-to-start.png" alt="Previous"></button>
+            <button id="play-pause"><img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Play"></button>
+            <button id="next"><img src="https://img.icons8.com/ios-filled/50/000000/end.png" alt="Next"></button>
+        </div>
+
+        <div class="slider">
+            <input type="range" id="progress" min="0" max="100" value="0">
+            <div class="time">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="repeat"><img src="https://img.icons8.com/ios-glyphs/30/000000/replay.png" alt="Repeat"></button>
+            <button id="home"><img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home"></button>
+            <button id="profile"><img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Profile"></button>
+        </div>
+
+        <div class="lyrics">
+            <div class="lyrics-wrapper" id="lyrics">
+                <!-- Lirik akan ditampilkan di sini -->
+            </div>
+        </div>
+
+        <div class="icon-overlay">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/musical-notes.png" alt="Music Icon">
+        </div>
+    </div>
+
+    <audio id="audio" src="So bitter.mp3" type="audio/mp3"></audio>
+    <!-- <iframe id ='audio' src="https://youtu.be/3h7dKUoI86c" title="description"></iframe> -->
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/3h7dKUoI86c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+    
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause');
+        const progress = document.getElementById('progress');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const lyricsEl = document.getElementById('lyrics');
+        const songTitleEl = document.getElementById('song-title');
+        const repeatBtn = document.getElementById('repeat'); // Tombol Repeat
+
+        const lyricsData = {
+            "So Bitter": [
+                { time: 29, text: "B-Bitter, baby wanna sit-it-it from the team" },
+                { time: 33, text: "Make me sit down" },
+                { time: 35, text: "I don't feel a thi-thing-ing" },
+                { time: 36, text: "Maybe once but I was a clown" },
+                { time: 38, text: "Room's getting hotter, yeah" },
+                { time: 40, text: "So hot that I could meltdown" },
+                { time: 42, text: "Been hard from the sta-art" },
+                { time: 44, text: "But I think that it is dealt now" },
+                { time: 46, text: "Pull up to the crib" },
+                { time: 47, text: "Drink and drugs in my hand" },
+                { time: 50, text: "Ta-ta-taking all these drugs" },
+                { time: 51, text: "Yeah, I'ma take till I can't stand" },
+                { time: 53, text: "Baby, night is always long" },
+                { time: 55 , text: "But the night is never bland" },
+                { time: 57, text: "Baby, why so bitter?" },
+                { time: 59 , text: "Baby, why you act like that?" },
+                { time: 61 , text: "Bitch, I'm walking through the dark" },
+                { time: 62 , text: "I can never see the end" },
+                { time: 64 , text: "Sixteen years from the start" },
+                { time: 66 , text: "I don't even have a friend" },
+                { time: 68 , text: "I just walk right into people" },
+                { time: 70 , text: "But I can never blend" },
+                { time: 71 , text: "Baby, why you so bitter?" },
+                { time: 74 , text: "For you it's a trend" },
+                { time: 76 , text: "So bitter" },
+                { time: 77 , text: "Why, why you bitter? (So bi- So bitter)" },
+                { time: 79 , text: "Bitter, bitter, so bitter? (So bitter)" },
+                { time: 85 , text: "Why, why you bitter? (So bitter)" }
+            ]
+        };
+
+        let lyricsInterval;
+        let currentLine = 0;
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', () => {
+            progress.max = audio.duration;
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/pause.png" alt="Pause">';
+                startLyrics();
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Play">';
+                stopLyrics();
+            }
+        }
+
+        function updateProgress() {
+            progress.value = audio.currentTime;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+            scrollLyrics(audio.currentTime);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function startLyrics() {
+            const songTitle = songTitleEl.textContent;
+            const lyrics = lyricsData[songTitle];
+            currentLine = 0;
+            lyricsEl.innerHTML = ''; 
+
+            lyrics.forEach((line, index) => {
+                const p = document.createElement('p');
+                p.textContent = line.text;
+                lyricsEl.appendChild(p);
+            });
+
+            lyricsInterval = setInterval(() => {
+                if (currentLine < lyrics.length) {
+                    const lineTime = lyrics[currentLine].time;
+                    if (Math.floor(audio.currentTime) === lineTime) {
+                        highlightLyrics(currentLine);
+                        currentLine++;
+                    }
+                } else {
+                    clearInterval(lyricsInterval);
+                }
+            }, 1000);
+        }
+
+        function highlightLyrics(index) {
+            const lines = lyricsEl.getElementsByTagName('p');
+            for (let i = 0; i < lines.length; i++) {
+                lines[i].classList.remove('highlight');
+            }
+            lines[index].classList.add('highlight');
+            const offset = lines[index].offsetTop;
+            lyricsEl.parentElement.scrollTo({ top: offset - 10, behavior: 'smooth' });
+        }
+
+        function scrollLyrics(currentTime) {
+            if (currentLine < lyricsData["We Become We"].length && Math.floor(currentTime) === lyricsData["We Become We"][currentLine].time) {
+                highlightLyrics(currentLine);
+                currentLine++;
+            }
+        }
+
+        function stopLyrics() {
+            clearInterval(lyricsInterval);
+        }
+
+        repeatBtn.addEventListener('click', () => {
+            audio.currentTime = 0; // Mengatur waktu pemutaran kembali ke awal
+            audio.play(); // Memulai pemutaran ulang
+        });
+
+        const homeBtn = document.getElementById('home');
+        homeBtn.addEventListener('click', () => {
+        window.location.href = 'dashboard.html'; // Ganti dengan URL beranda yang benar
+        });
+
+    </script>
+</body>
+</html>
