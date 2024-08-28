@@ -1,0 +1,204 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('wpp5.jpg') no-repeat center center fixed; 
+            background-size: cover; /* Menyesuaikan ukuran gambar dengan ukuran viewport */
+            color: rgb(255, 255, 255);
+            font-size: 18px; /* Ukuran font utama diperbesar */
+        }
+
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .sidebar {
+            width: 20%;
+            background-color: #f1f1f5;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 20px; /* Ukuran font sidebar diperbesar */
+        }
+
+        .logo {
+            font-size: 50px; /* Ukuran font logo diperbesar */
+            font-weight: bold;
+            color: #7c7ef8;
+            margin-bottom: 30px;
+        }
+
+        .menu-button {
+            background-color: #c7c6fc;
+            color: white;
+            border: none;
+            padding: 10px 20px; /* Padding kanan-kiri untuk memperpanjang tombol */
+            text-align: left; /* Merapatkan teks ke kiri */
+            font-size: 22px; /* Ukuran font tombol Home diperbesar */
+            font-weight: bold;
+            margin-bottom: 100px;
+            cursor: pointer;
+            border-radius: 8px; /* Membulatkan sudut */
+            width: calc(40% - 40px); /* Lebar tombol diperpanjang dengan menyesuaikan dengan sidebar */
+            display: block; /* Tombol menggunakan seluruh lebar yang tersedia */
+        }
+
+        .collection-box {
+            border: 2px solid #698af7; /* Membuat kolom di sekitar bagian Koleksi Kamu */
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        .collection-box h2 {
+            margin-bottom: 20px;
+            font-size: 24px; /* Ukuran font judul sidebar diperbesar */
+            color: rgb(123, 134, 252);
+            border-bottom: 1px solid #6b73e4; /* Pembatas di bawah "Koleksi Kamu" */
+            padding-bottom: 10px;
+        }
+
+        .collection-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .collection-box ul li {
+            margin-bottom: 15px;
+        }
+
+        .collection-box ul li.active, .collection-box ul li a {
+            color: #959ff7;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 20px; /* Ukuran font item sidebar diperbesar */
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 20px;
+            box-sizing: border-box;
+            font-size: 18px; /* Ukuran font konten utama diperbesar */
+        }
+
+        .playlist-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .playlist-image img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            margin-right: 20px;
+        }
+
+        .playlist-info h1 {
+            margin: 0;
+            font-size: 50px; /* Ukuran font judul playlist diperbesar */
+        }
+
+        .playlist-info p {
+            margin-top: 5px;
+            color: #d8e0f8;
+            font-size: 20px; /* Ukuran font deskripsi playlist diperbesar */
+        }
+
+        .track-list table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 20px; /* Ukuran font daftar lagu diperbesar */
+        }
+
+        .track-list th, .track-list td {
+            padding: 15px;
+            text-align: left;
+        }
+
+        .track-list tr:hover {
+            background-color: #c3c9fd;
+        }
+
+        .track-list td {
+            border-bottom: 1px solid #fffefe;
+        }
+
+        .track-list tr a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Media Queries untuk tablet dan layar yang lebih kecil */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .playlist-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .playlist-image img {
+        margin: 0 auto 20px auto;
+    }
+
+    .playlist-info h1 {
+        font-size: 36px;
+    }
+
+    .playlist-info p {
+        font-size: 18px;
+    }
+}
+
+/* Media Queries untuk smartphone dan layar yang sangat kecil */
+@media (max-width: 480px) {
+    body {
+        font-size: 16px;
+    }
+
+    .logo {
+        font-size: 36px;
+    }
+
+    .menu-button {
+        font-size: 18px;
+        margin-bottom: 50px;
+    }
+
+    .collection-box h2 {
+        font-size: 20px;
+    }
+
+    .collection-box ul li.active, .collection-box ul li a {
+        font-size: 16px;
+    }
+
+    .playlist-info h1 {
+        font-size: 28px;
+    }
+
+    .playlist-info p {
+        font-size: 16px;
+    }
+
+    .track-list th, .track-list td {
+        padding: 10px;
+        font-size: 16px;
+    }
+}

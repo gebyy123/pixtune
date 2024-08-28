@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>We Become We</title>
+    <!-- <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #bfddeb;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .music-player {
+            background-color: #95b9e7;
+            border-radius: 20px;
+            padding: 20px;
+            width: 340px;
+            box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .music-player .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .music-player .header h2 {
+            margin: 0;
+            font-size: 18px;
+            color: #22384d;
+        }
+
+        .music-player .header .menu-icon {
+            background-color: #b7b8e0;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .music-player .header .menu-icon img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .music-player img.album-art {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .music-player h3 {
+            margin: 10px 0 5px;
+            font-size: 18px;
+            color: #1b2552;
+        }
+
+        .music-player p.artist-name {
+            color: #4d6591;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            background-color: #bbc1ee;
+            border: none;
+            border-radius: 50%;
+            padding: 15px;
+            margin: 0 10px;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .controls button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .slider {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .slider input[type="range"] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 5px;
+            background: #dde9fa;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .slider input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: #443c8d;
+            cursor: pointer;
+        }
+
+        .slider .time {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #1e1857;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .footer button {
+            background-color: #b9bce9;
+            border: none;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer button img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .background-decor {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #5248df;
+            border-radius: 10px;
+            padding: 8px 12px;
+            font-size: 12px;
+            color: white;
+        }
+
+        .icon-overlay {
+            position: absolute;
+            top: 45px;
+            right: 15px;
+            background-color: #532dfc;
+            padding: 8px;
+            border-radius: 50%;
+            box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .icon-overlay img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .lyrics {
+            margin-top: 20px;
+            color: #1a1958;
+            font-size: 14px;
+            line-height: 1.5;
+            height: 100px; /* Adjust as needed */
+            overflow: hidden;
+            position: relative;
+        }
+
+        .lyrics-wrapper {
+            height: 100%;
+            overflow-y: scroll;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            left: 0;
+            transition: transform 0.3s ease; /* Smooth scrolling */
+        }
+
+        .lyrics p {
+            margin: 5px 0;
+            padding: 2px 0;
+        }
+
+        .highlight {
+            color: #032286;
+            font-weight: bold;
+        }
+
+        @media (max-width: 480px) {
+    .music-player {
+        width: 100%;
+        height: 98vh; /* Memastikan player mengisi tinggi layar */
+        border-radius: 0; /* Membuat sudut membulat agar sesuai dengan ukuran layar */
+    }
+
+    .album-art {
+        width: 60%;
+        height: auto;
+        aspect-ratio: 1;
+    }
+}
+    </style> -->
+</head>
+<body>
+
+    <div class="music-player">
+        <div class="background-decor">bbyy</div>
+        
+        <div class="header">
+            <h2>Play Music</h2>
+            <div class="menu-icon">
+                <img src="https://img.icons8.com/material-outlined/24/000000/menu--v1.png" alt="Menu">
+            </div>
+        </div>
+
+        <img src="pp3.jpg" alt="Album Art" class="album-art">
+        <h3 id="song-title">We Become We</h3>
+        <p class="artist-name">Fiona Palomo, Milo Manheim</p>
+
+        <div class="controls">
+            <button id="prev"><img src="https://img.icons8.com/ios-filled/50/000000/skip-to-start.png" alt="Previous"></button>
+            <button id="play-pause"><img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Play"></button>
+            <button id="next"><img src="https://img.icons8.com/ios-filled/50/000000/end.png" alt="Next"></button>
+        </div>
+
+        <div class="slider">
+            <input type="range" id="progress" min="0" max="100" value="0">
+            <div class="time">
+                <span id="current-time">0:00</span>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="footer">
+            <button id="repeat"><img src="https://img.icons8.com/ios-glyphs/30/000000/replay.png" alt="Repeat"></button>
+            <button id="home"><img src="https://img.icons8.com/ios-filled/50/000000/home.png" alt="Home"></button>
+            <button id="profile"><img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" alt="Profile"></button>
+        </div>
+
+        <div class="lyrics">
+            <div class="lyrics-wrapper" id="lyrics">
+                <!-- Lirik akan ditampilkan di sini -->
+            </div>
+        </div>
+
+        <div class="icon-overlay">
+            <img src="https://img.icons8.com/ios-glyphs/30/000000/musical-notes.png" alt="Music Icon">
+        </div>
+    </div>
+
+    <audio id="audio" src="WeBecomeWe.mp3" type="audio/mp3"></audio>
+    <!-- <iframe id ='audio' src="https://youtu.be/3h7dKUoI86c" title="description"></iframe> -->
+    <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/3h7dKUoI86c" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+
+    
+    <script>
+        const audio = document.getElementById('audio');
+        const playPauseBtn = document.getElementById('play-pause');
+        const progress = document.getElementById('progress');
+        const currentTimeEl = document.getElementById('current-time');
+        const durationEl = document.getElementById('duration');
+        const lyricsEl = document.getElementById('lyrics');
+        const songTitleEl = document.getElementById('song-title');
+        const repeatBtn = document.getElementById('repeat'); // Tombol Repeat
+
+        const lyricsData = {
+            "We Become We": [
+                { time: 9, text: "Can we become we" },
+                { time: 12, text: "No longer known as just you and me" },
+                { time: 17, text: "Two separate lives now in unity" },
+                { time: 22, text: "Stuck here together but" },
+                { time: 24, text: "Will this always be just an arrangement?" },
+                { time: 30, text: "Can we become more" },
+                { time: 32, text: "Than half of a union we're chosen for" },
+                { time: 37, text: "Where I am your best half" },
+                { time: 39, text: "And I am yours" },
+                { time: 42, text: "Stuck here forever" },
+                { time: 45, text: "And hopefully not ending in estrangement" },
+                { time: 50, text: "It's the step of faith" },
+                { time: 52, text: "We have to take sometimes (if I'm with you, I can take it)" },
+                { time: 59 , text: "But if we are one" },
+                { time: 62, text: "What happens to you and I? (If I'm with you, I will make it)" },
+                { time: 70 , text: "Will this always be just an arrangement" },
+                { time: 75 , text: "We'll find out in time if we don't break it" },
+                { time: 79 , text: "Can mine become yours" },
+                { time: 82 , text: "Combining our dreams" },
+                { time: 84 , text: "Without keeping score?" },
+                { time: 87 , text: "Always together, but never bored" },
+                { time: 92 , text: "No choice in the matter but" },
+                { time: 94 , text: "This will never work without each other" },
+                { time: 99 , text: "Can we become we? (Can we become we?)" },
+                { time: 102 , text: "Start a new line on this family tree" },
+                { time: 107 , text: "Two hearts connected by one beat" },
+                { time: 113 , text: "Your hand in mine and" },
+                { time: 115 , text: "I could never choose to love another" },
+                { time: 120, text: "Maybe one day I can learn to love you, too" }
+            ]
+        };
+
+        let lyricsInterval;
+        let currentLine = 0;
+
+        playPauseBtn.addEventListener('click', togglePlayPause);
+
+        audio.addEventListener('timeupdate', updateProgress);
+        audio.addEventListener('loadedmetadata', () => {
+            progress.max = audio.duration;
+            durationEl.textContent = formatTime(audio.duration);
+        });
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/pause.png" alt="Pause">';
+                startLyrics();
+            } else {
+                audio.pause();
+                playPauseBtn.innerHTML = '<img src="https://img.icons8.com/ios-filled/50/000000/play.png" alt="Play">';
+                stopLyrics();
+            }
+        }
+
+        function updateProgress() {
+            progress.value = audio.currentTime;
+            currentTimeEl.textContent = formatTime(audio.currentTime);
+            scrollLyrics(audio.currentTime);
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        function startLyrics() {
+            const songTitle = songTitleEl.textContent;
+            const lyrics = lyricsData[songTitle];
+            currentLine = 0;
+            lyricsEl.innerHTML = ''; 
+
+            lyrics.forEach((line, index) => {
+                const p = document.createElement('p');
+                p.textContent = line.text;
+                lyricsEl.appendChild(p);
+            });
+
+            lyricsInterval = setInterval(() => {
+                if (currentLine < lyrics.length) {
+                    const lineTime = lyrics[currentLine].time;
+                    if (Math.floor(audio.currentTime) === lineTime) {
+                        highlightLyrics(currentLine);
+                        currentLine++;
+                    }
+                } else {
+                    clearInterval(lyricsInterval);
+                }
+            }, 1000);
+        }
+
+        function highlightLyrics(index) {
+            const lines = lyricsEl.getElementsByTagName('p');
+            for (let i = 0; i < lines.length; i++) {
+                lines[i].classList.remove('highlight');
+            }
+            lines[index].classList.add('highlight');
+            const offset = lines[index].offsetTop;
+            lyricsEl.parentElement.scrollTo({ top: offset - 10, behavior: 'smooth' });
+        }
+
+        function scrollLyrics(currentTime) {
+            if (currentLine < lyricsData["We Become We"].length && Math.floor(currentTime) === lyricsData["We Become We"][currentLine].time) {
+                highlightLyrics(currentLine);
+                currentLine++;
+            }
+        }
+
+        function stopLyrics() {
+            clearInterval(lyricsInterval);
+        }
+
+        repeatBtn.addEventListener('click', () => {
+            audio.currentTime = 0; // Mengatur waktu pemutaran kembali ke awal
+            audio.play(); // Memulai pemutaran ulang
+        });
+
+        const homeBtn = document.getElementById('home');
+        homeBtn.addEventListener('click', () => {
+        window.location.href = 'dashboard.html'; // Ganti dengan URL beranda yang benar
+        });
+
+    </script>
+</body>
+</html>
